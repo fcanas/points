@@ -10,6 +10,11 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet var treeController :NSTreeController?
+    var editable :Bool = true
+    
+    var nodes :[Node] = [Node(), Node(), Node()]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
