@@ -679,7 +679,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Umr-GY-taD" viewBased="YES" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="Uad-YQ-xqc" id="VXm-Tp-SeL">
-                                            <rect key="frame" x="0.0" y="0.0" width="238" height="117"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="478" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -709,11 +709,11 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                         <connections>
-                                                                            <binding destination="Ed6-ZG-qrd" name="value" keyPath="objectValue" id="Lyu-Se-aAd"/>
+                                                                            <binding destination="Ed6-ZG-qrd" name="value" keyPath="objectValue.name" id="tbK-5i-h5j"/>
                                                                         </connections>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="Ed6-ZG-qrd" name="value" keyPath="objectValue.name" id="8RG-Q5-UOW"/>
+                                                                        <binding destination="Ed6-ZG-qrd" name="value" keyPath="objectValue.name" id="l7s-hz-Ewe"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -729,7 +729,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                     <connections>
-                                                        <binding destination="nfD-Hd-XYD" name="value" keyPath="arrangedObjects" id="Nwr-zm-efj"/>
+                                                        <binding destination="nfD-Hd-XYD" name="value" keyPath="arrangedObjects.name" id="DGv-TN-0DR"/>
                                                     </connections>
                                                 </tableColumn>
                                                 <tableColumn width="356" minWidth="40" maxWidth="1000" id="n22-c9-9Df">
@@ -756,11 +756,11 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                         <connections>
-                                                                            <binding destination="4vD-GG-HHt" name="value" keyPath="objectValue" id="6v1-2Z-ERZ"/>
+                                                                            <binding destination="4vD-GG-HHt" name="value" keyPath="objectValue.note" id="n3v-uz-yM0"/>
                                                                         </connections>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="4vD-GG-HHt" name="value" keyPath="objectValue.note" id="nsZ-Rd-VDg"/>
+                                                                        <binding destination="4vD-GG-HHt" name="value" keyPath="objectValue" id="Wiw-CV-mcc"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -776,7 +776,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                     <connections>
-                                                        <binding destination="nfD-Hd-XYD" name="value" keyPath="arrangedObjects" id="mMM-H8-XAb"/>
+                                                        <binding destination="nfD-Hd-XYD" name="value" keyPath="arrangedObjects.note" id="nlI-HB-M8W"/>
                                                     </connections>
                                                 </tableColumn>
                                             </tableColumns>
@@ -810,14 +810,13 @@
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <treeController objectClassName="Points.Node" childrenKeyPath="children" leafKeyPath="isLeaf" id="nfD-Hd-XYD">
+                <treeController objectClassName="Points.Node" automaticallyPreparesContent="YES" childrenKeyPath="children" id="nfD-Hd-XYD">
                     <declaredKeys>
                         <string>name</string>
                         <string>note</string>
                     </declaredKeys>
                     <connections>
                         <binding destination="5gI-5U-AMq" name="contentArray" keyPath="self.nodes" id="Ym6-1S-die"/>
-                        <binding destination="5gI-5U-AMq" name="editable" keyPath="self.editable" id="Qgp-Iz-y53"/>
                     </connections>
                 </treeController>
             </objects>

@@ -8,31 +8,47 @@
 
 import Cocoa
 
+enum KeyCommand : UInt16 {
+    case Return = 36
+    case Delete = 51
+}
+
 class ViewController: NSViewController {
 
     @IBOutlet var treeController :NSTreeController?
     var editable :Bool = true
     
-    var nodes :[Node] = []
+    var nodes :[Node] = [] {
+        didSet {
+            if oldValue != nodes {
+                representedObject = nodes
+            }
+        }
+    }
     
     override var representedObject: AnyObject? {
         didSet {
-        // Update the view, if already loaded.
+            if let n = representedObject as? [Node] {
+                nodes = n
+            }
         }
     }
     
     override func keyDown(event :NSEvent) {
-        let returnKey = event.keyCode == 36
-        let keys = (r:returnKey, s:event.modifierFlags)
+        let command = KeyCommand(rawValue: event.keyCode)
+        let keys = (r:command, s:event.modifierFlags)
         switch keys {
-        case let (true, m) where (m & NSEventModifierFlags.ShiftKeyMask) != nil:
-            println("adding child")
+        case let (c, m) where (m & NSEventModifierFlags.CommandKeyMask) != nil && c == .Return:
             treeController?.insertChild(self)
-        case let (true, m):
-            println("adding node")
+        case let (c, m) where (m & NSEventModifierFlags.ShiftKeyMask) != nil && c == .Return:
             treeController?.insert(self)
+        case let (c, m) where c == .Return:
+            println("Can we edit?")
+        case let (c, m) where c == .Delete:
+            println("delete")
+            treeController?.remove(self)
         default:
-            println("nothing to be done")
+            println("nothing to be done? \(event.keyCode)")
         }
         
     }
