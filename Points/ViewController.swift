@@ -13,20 +13,29 @@ class ViewController: NSViewController {
     @IBOutlet var treeController :NSTreeController?
     var editable :Bool = true
     
-    var nodes :[Node] = [Node(), Node(), Node()]
+    var nodes :[Node] = []
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
     override var representedObject: AnyObject? {
         didSet {
         // Update the view, if already loaded.
         }
     }
-
+    
+    override func keyDown(event :NSEvent) {
+        let returnKey = event.keyCode == 36
+        let keys = (r:returnKey, s:event.modifierFlags)
+        switch keys {
+        case let (true, m) where (m & NSEventModifierFlags.ShiftKeyMask) != nil:
+            println("adding child")
+            treeController?.insertChild(self)
+        case let (true, m):
+            println("adding node")
+            treeController?.insert(self)
+        default:
+            println("nothing to be done")
+        }
+        
+    }
 
 }
 

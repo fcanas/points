@@ -678,7 +678,7 @@
                                     <rect key="frame" x="1" y="17" width="238" height="117"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Umr-GY-taD" viewBased="YES" indentationPerLevel="16" outlineTableColumn="Uad-YQ-xqc" id="VXm-Tp-SeL">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Umr-GY-taD" viewBased="YES" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="Uad-YQ-xqc" id="VXm-Tp-SeL">
                                             <rect key="frame" x="0.0" y="0.0" width="238" height="117"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -817,6 +817,7 @@
                     </declaredKeys>
                     <connections>
                         <binding destination="5gI-5U-AMq" name="contentArray" keyPath="self.nodes" id="Ym6-1S-die"/>
+                        <binding destination="5gI-5U-AMq" name="editable" keyPath="self.editable" id="Qgp-Iz-y53"/>
                     </connections>
                 </treeController>
             </objects>

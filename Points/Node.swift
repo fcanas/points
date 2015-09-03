@@ -14,7 +14,7 @@ import Cocoa
     var children :Array<Node> = []
     var isLeaf :Bool {
         get {
-            return children.count == 0
+            return false
         }
     }
     var name :String = "Hi"
