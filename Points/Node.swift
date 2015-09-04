@@ -18,7 +18,10 @@ import Cocoa
         }
     }
     var name :String = "Hi"
-    var note :String = "Something or other"
+    var cost :Int = 0
+    var editableCost :Bool {
+        return children.count == 0
+    }
     
     required override init() {
         super.init()
@@ -27,7 +30,7 @@ import Cocoa
     func copyWithZone(zone: NSZone) -> AnyObject {
         var new :Node = self.dynamicType()
         new.name = name
-        new.note = note
+        new.cost = cost
         return new
     }
     

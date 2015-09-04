@@ -704,7 +704,7 @@
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="xK3-Rz-5az">
                                                                     <rect key="frame" x="0.0" y="0.0" width="116" height="17"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="aok-Dv-d3w">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="aok-Dv-d3w">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -712,9 +712,6 @@
                                                                             <binding destination="Ed6-ZG-qrd" name="value" keyPath="objectValue.name" id="tbK-5i-h5j"/>
                                                                         </connections>
                                                                     </textFieldCell>
-                                                                    <connections>
-                                                                        <binding destination="Ed6-ZG-qrd" name="value" keyPath="objectValue.name" id="l7s-hz-Ewe"/>
-                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
@@ -732,8 +729,8 @@
                                                         <binding destination="nfD-Hd-XYD" name="value" keyPath="arrangedObjects.name" id="DGv-TN-0DR"/>
                                                     </connections>
                                                 </tableColumn>
-                                                <tableColumn width="356" minWidth="40" maxWidth="1000" id="n22-c9-9Df">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Note">
+                                                <tableColumn width="358" minWidth="40" maxWidth="1000" id="n22-c9-9Df">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Cost">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -746,22 +743,19 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="4vD-GG-HHt">
-                                                            <rect key="frame" x="120" y="1" width="356" height="17"/>
+                                                            <rect key="frame" x="120" y="1" width="358" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Vm3-vP-IjQ">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vm3-vP-IjQ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="356" height="17"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="E53-Pe-2Dm">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="E53-Pe-2Dm">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                         <connections>
-                                                                            <binding destination="4vD-GG-HHt" name="value" keyPath="objectValue.note" id="n3v-uz-yM0"/>
+                                                                            <binding destination="4vD-GG-HHt" name="value" keyPath="objectValue.cost" id="kyJ-U6-Esl"/>
                                                                         </connections>
                                                                     </textFieldCell>
-                                                                    <connections>
-                                                                        <binding destination="4vD-GG-HHt" name="value" keyPath="objectValue" id="Wiw-CV-mcc"/>
-                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
@@ -776,7 +770,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                     <connections>
-                                                        <binding destination="nfD-Hd-XYD" name="value" keyPath="arrangedObjects.note" id="nlI-HB-M8W"/>
+                                                        <binding destination="nfD-Hd-XYD" name="value" keyPath="arrangedObjects.cost" id="sgo-S2-A0p"/>
                                                     </connections>
                                                 </tableColumn>
                                             </tableColumns>
@@ -784,7 +778,7 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="9Ii-fk-Z06">
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="9Ii-fk-Z06">
                                     <rect key="frame" x="1" y="119" width="223" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
