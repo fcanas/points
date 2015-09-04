@@ -40,6 +40,9 @@ class ViewController: NSViewController {
     }
     
     override func keyDown(event :NSEvent) {
+        
+        println("represented object \(representedObject)")
+        
         let command = KeyCommand(rawValue: event.keyCode)
         let keys = (r:command, s:event.modifierFlags)
         switch keys {
@@ -47,8 +50,11 @@ class ViewController: NSViewController {
             treeController?.insertChild(self)
         case let (c, m) where c == .SingleQuote:
             treeController?.insert(self)
+            if let r = outlineView?.selectedRow, let c = outlineView?.selectedColumn where r != -1 && c != -1 {
+                outlineView?.editColumn(c, row: r, withEvent: event, select: true)
+            }
         case let (c, m) where c == .Return:
-            println("Can we edit?")
+            ()
         case let (c, m) where c == .Delete:
             treeController?.remove(self)
         case let (c, m) where c == .N && (m & NSEventModifierFlags.ControlKeyMask) != nil:
