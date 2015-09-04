@@ -9,8 +9,11 @@
 import Cocoa
 
 enum KeyCommand : UInt16 {
-    case Return = 36
-    case Delete = 51
+    case Return      = 36
+    case Delete      = 51
+    case N           = 45
+    case SingleQuote = 39
+    case SemiColon = 41
 }
 
 class ViewController: NSViewController {
@@ -38,9 +41,9 @@ class ViewController: NSViewController {
         let command = KeyCommand(rawValue: event.keyCode)
         let keys = (r:command, s:event.modifierFlags)
         switch keys {
-        case let (c, m) where (m & NSEventModifierFlags.CommandKeyMask) != nil && c == .Return:
+        case let (c, m) where c == .SemiColon:
             treeController?.insertChild(self)
-        case let (c, m) where (m & NSEventModifierFlags.ShiftKeyMask) != nil && c == .Return:
+        case let (c, m) where c == .SingleQuote:
             treeController?.insert(self)
         case let (c, m) where c == .Return:
             println("Can we edit?")
