@@ -19,6 +19,13 @@ import Cocoa
     }
     var name :String = "Hi"
     
+    override class func keyPathsForValuesAffectingValueForKey(key: String) -> Set<NSObject> {
+        if key == "cost" {
+            return Set(["children"])
+        }
+        return Set<NSObject>()
+    }
+
     var storedCost :Int = 0
     var cost :Int {
         get {
