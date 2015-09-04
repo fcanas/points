@@ -679,7 +679,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Umr-GY-taD" viewBased="YES" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="Uad-YQ-xqc" id="VXm-Tp-SeL">
-                                            <rect key="frame" x="0.0" y="0.0" width="478" height="0.0"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="480" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -729,7 +729,7 @@
                                                         <binding destination="nfD-Hd-XYD" name="value" keyPath="arrangedObjects.name" id="DGv-TN-0DR"/>
                                                     </connections>
                                                 </tableColumn>
-                                                <tableColumn width="358" minWidth="40" maxWidth="1000" id="n22-c9-9Df">
+                                                <tableColumn width="356" minWidth="40" maxWidth="1000" id="n22-c9-9Df">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Cost">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -746,7 +746,7 @@
                                                             <rect key="frame" x="120" y="1" width="358" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vm3-vP-IjQ">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Vm3-vP-IjQ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="356" height="17"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="E53-Pe-2Dm">
                                                                         <font key="font" metaFont="system"/>
@@ -778,7 +778,7 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="9Ii-fk-Z06">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="9Ii-fk-Z06">
                                     <rect key="frame" x="1" y="119" width="223" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -800,6 +800,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="outlineView" destination="VXm-Tp-SeL" id="H2J-CL-ifQ"/>
                         <outlet property="treeController" destination="nfD-Hd-XYD" id="BJm-GO-4Yo"/>
                     </connections>
                 </viewController>
