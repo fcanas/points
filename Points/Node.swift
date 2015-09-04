@@ -18,7 +18,17 @@ import Cocoa
         }
     }
     var name :String = "Hi"
-    var cost :Int = 0
+    
+    var storedCost :Int = 0
+    var cost :Int {
+        get {
+            return children.count > 0 ? reduce(children, 0) { $0 + $1.cost } : storedCost
+        }
+        set(newCost) {
+            storedCost = newCost
+        }
+    }
+    
     var editableCost :Bool {
         return children.count == 0
     }

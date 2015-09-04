@@ -48,7 +48,6 @@ class ViewController: NSViewController {
         case let (c, m) where c == .Return:
             println("Can we edit?")
         case let (c, m) where c == .Delete:
-            println("delete")
             treeController?.remove(self)
         default:
             println("nothing to be done? \(event.keyCode)")
