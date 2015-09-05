@@ -16,7 +16,7 @@ import Cocoa
             return false
         }
     }
-    public var name :String = "Hi"
+    public var name :String = "-"
     
     public override class func keyPathsForValuesAffectingValueForKey(key: String) -> Set<NSObject> {
         if key == "cost" {

@@ -12,25 +12,22 @@ class Document: NSDocument {
 
     var nodes :[Node] = []
     
-    override init() {
-        super.init()
-        // Add your subclass-specific initialization here.
-    }
-
-    override func windowControllerDidLoadNib(aController: NSWindowController) {
-        super.windowControllerDidLoadNib(aController)
-        // Add any code here that needs to be executed once the windowController has loaded the document's window.
+    override var documentEdited :Bool {
+        get {
+            return true
+        }
     }
 
     override class func autosavesInPlace() -> Bool {
         return true
     }
-
+    
     override func makeWindowControllers() {
         // Returns the Storyboard that contains your Document window.
         let storyboard = NSStoryboard(name: "Main", bundle: nil)!
         let windowController = storyboard.instantiateControllerWithIdentifier("Document Window Controller") as! NSWindowController
         self.addWindowController(windowController)
+        // set the document as the view controller's represented object
         let vc = windowController.contentViewController as? ViewController
         vc?.representedObject = self
     }
@@ -44,11 +41,6 @@ class Document: NSDocument {
     }
 
     override func readFromData(data: NSData, ofType typeName: String, error outError: NSErrorPointer) -> Bool {
-        // Insert code here to read your document from the given data of the specified type. If outError != nil, ensure that you create and set an appropriate error when returning false.
-        // You can also choose to override readFromFileWrapper:ofType:error: or readFromURL:ofType:error: instead.
-        // If you override either of these, you should also override -isEntireFileLoaded to return NO if the contents are lazily loaded.
-        //
-        
         if let n = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Node] {
             nodes = n
             return true
