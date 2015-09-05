@@ -68,4 +68,10 @@ class NodeTest: XCTestCase {
         
         XCTAssert(node != node2, "Two otherwise equal nodes with different children should not be equal")
     }
+    
+    func testArchiving() {
+        let data = NSKeyedArchiver.archivedDataWithRootObject(node)
+        let node2 = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! Node
+        XCTAssert(node == node2, "Archiving and unarchiving should result in equivalent Nodes")
+    }
 }
