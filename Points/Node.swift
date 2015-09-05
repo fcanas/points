@@ -8,18 +8,17 @@
 
 import Cocoa
 
-@objc class Node: NSObject, NSCopying, NSCoding {
+@objc public class Node: NSObject, NSCopying, NSCoding, Equatable {
     
-    let image :NSImage? = nil
-    var children :Array<Node> = []
+    public var children :Array<Node> = []
     var isLeaf :Bool {
         get {
             return false
         }
     }
-    var name :String = "Hi"
+    public var name :String = "Hi"
     
-    override class func keyPathsForValuesAffectingValueForKey(key: String) -> Set<NSObject> {
+    public override class func keyPathsForValuesAffectingValueForKey(key: String) -> Set<NSObject> {
         if key == "cost" {
             return Set(["children"])
         }
@@ -27,7 +26,7 @@ import Cocoa
     }
 
     var storedCost :Int = 0
-    var cost :Int {
+    public var cost :Int {
         get {
             return children.count > 0 ? reduce(children, 0) { $0 + $1.cost } : storedCost
         }
@@ -40,27 +39,44 @@ import Cocoa
         return children.count == 0
     }
     
-    required override init() {
+    public required override init() {
         super.init()
     }
     
-    func copyWithZone(zone: NSZone) -> AnyObject {
+    public func copyWithZone(zone: NSZone) -> AnyObject {
         var new :Node = self.dynamicType()
         new.name = name
         new.cost = cost
+        new.children = map(children, { $0.copy() as! Node })
         return new
     }
     
-    required init(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: NSCoder) {
         super.init()
         storedCost = aDecoder.decodeIntegerForKey("storedCost")
         name = aDecoder.decodeObjectOfClass(NSString.self, forKey: "name") as! NSString as String
         children = aDecoder.decodeObjectOfClass(NSArray.self, forKey: "children") as! NSArray as? [Node] ?? []
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
+    public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeInteger(storedCost, forKey: "storedCost")
         aCoder.encodeObject(name as NSString, forKey: "name")
         aCoder.encodeObject(children as NSArray, forKey: "children")
     }
+}
+
+public func ==(lhs: Node, rhs: Node) -> Bool {
+    
+    if lhs.name != rhs.name {
+        return false
+    }
+    if lhs.children.count != rhs.children.count {
+        return false
+    }
+    
+    if lhs.children.count > 1 {
+        return reduce(zip(lhs.children, rhs.children), true, {(eq, cs) in eq && cs.0 == cs.1 })
+    }
+    
+    return lhs.storedCost == rhs.storedCost
 }
