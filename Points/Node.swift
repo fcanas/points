@@ -8,7 +8,7 @@
 
 import Cocoa
 
-@objc class Node: NSObject, NSCopying {
+@objc class Node: NSObject, NSCopying, NSCoding {
     
     let image :NSImage? = nil
     var children :Array<Node> = []
@@ -51,4 +51,16 @@ import Cocoa
         return new
     }
     
+    required init(coder aDecoder: NSCoder) {
+        super.init()
+        storedCost = aDecoder.decodeIntegerForKey("storedCost")
+        name = aDecoder.decodeObjectOfClass(NSString.self, forKey: "name") as! NSString as String
+        children = aDecoder.decodeObjectOfClass(NSArray.self, forKey: "children") as! NSArray as? [Node] ?? []
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeInteger(storedCost, forKey: "storedCost")
+        aCoder.encodeObject(name as NSString, forKey: "name")
+        aCoder.encodeObject(children as NSArray, forKey: "children")
+    }
 }
