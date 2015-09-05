@@ -679,7 +679,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView appearanceType="vibrantLight" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Umr-GY-taD" viewBased="YES" indentationPerLevel="16" outlineTableColumn="Uad-YQ-xqc" id="VXm-Tp-SeL">
-                                            <rect key="frame" x="0.0" y="0.0" width="480" height="0.0"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="436" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="2" height="3"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -729,7 +729,7 @@
                                                         <binding destination="nfD-Hd-XYD" name="value" keyPath="arrangedObjects.name" id="DGv-TN-0DR"/>
                                                     </connections>
                                                 </tableColumn>
-                                                <tableColumn width="100" minWidth="40" maxWidth="1000" id="n22-c9-9Df">
+                                                <tableColumn width="142" minWidth="40" maxWidth="1000" id="n22-c9-9Df">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Cost">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -811,7 +811,7 @@
                         <string>note</string>
                     </declaredKeys>
                     <connections>
-                        <binding destination="5gI-5U-AMq" name="contentArray" keyPath="self.nodes" id="Ym6-1S-die"/>
+                        <binding destination="5gI-5U-AMq" name="contentArray" keyPath="self.representedObject.nodes" id="Hjv-W7-PG6"/>
                     </connections>
                 </treeController>
             </objects>

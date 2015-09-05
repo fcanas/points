@@ -23,22 +23,6 @@ class ViewController: NSViewController {
     @IBOutlet var outlineView :NSOutlineView?
     var editable :Bool = true
     
-    var nodes :[Node] = [] {
-        didSet {
-            if oldValue != nodes {
-                representedObject = nodes
-            }
-        }
-    }
-    
-    override var representedObject: AnyObject? {
-        didSet {
-            if let n = representedObject as? [Node] {
-                nodes = n
-            }
-        }
-    }
-    
     override func keyDown(event :NSEvent) {
         
         println("represented object \(representedObject)")
