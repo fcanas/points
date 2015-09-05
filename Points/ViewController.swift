@@ -14,19 +14,16 @@ enum KeyCommand : UInt16 {
     case N           = 45
     case P           = 35
     case SingleQuote = 39
-    case SemiColon = 41
+    case SemiColon   = 41
 }
 
 class ViewController: NSViewController {
-
+    
     @IBOutlet var treeController :NSTreeController?
     @IBOutlet var outlineView :NSOutlineView?
     var editable :Bool = true
     
     override func keyDown(event :NSEvent) {
-        
-        println("represented object \(representedObject)")
-        
         let command = KeyCommand(rawValue: event.keyCode)
         let keys = (r:command, s:event.modifierFlags)
         switch keys {
@@ -37,8 +34,6 @@ class ViewController: NSViewController {
             if let r = outlineView?.selectedRow, let c = outlineView?.selectedColumn where r != -1 && c != -1 {
                 outlineView?.editColumn(c, row: r, withEvent: event, select: true)
             }
-        case let (c, m) where c == .Return:
-            ()
         case let (c, m) where c == .Delete:
             treeController?.remove(self)
         case let (c, m) where c == .N && (m & NSEventModifierFlags.ControlKeyMask) != nil:
@@ -50,10 +45,10 @@ class ViewController: NSViewController {
                 outlineView?.selectRowIndexes(NSIndexSet(index: selectedRow - 1), byExtendingSelection: false)
             }
         default:
-            println("nothing to be done? \(event.keyCode) + \(event.modifierFlags)")
+            ()
         }
-        
-    }
 
+    }
+    
 }
 
