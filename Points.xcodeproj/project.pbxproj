@@ -408,6 +408,7 @@
 				E7995C721B98CC750025FFAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E7995C731B98CC750025FFAC /* Build configuration list for PBXNativeTarget "PointsTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +417,7 @@
 				E7995C751B98CC750025FFAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
