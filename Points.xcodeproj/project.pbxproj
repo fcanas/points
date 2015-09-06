@@ -13,7 +13,6 @@
 		E7995C5C1B98CC750025FFAC /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7995C5B1B98CC750025FFAC /* Document.swift */; };
 		E7995C5E1B98CC750025FFAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7995C5D1B98CC750025FFAC /* Images.xcassets */; };
 		E7995C611B98CC750025FFAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7995C5F1B98CC750025FFAC /* Main.storyboard */; };
-		E7995C6D1B98CC750025FFAC /* PointsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7995C6C1B98CC750025FFAC /* PointsTests.swift */; };
 		E7995C771B98D1410025FFAC /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7995C761B98D1410025FFAC /* Node.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		E7995C601B98CC750025FFAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7995C661B98CC750025FFAC /* PointsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PointsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7995C6B1B98CC750025FFAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E7995C6C1B98CC750025FFAC /* PointsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsTests.swift; sourceTree = "<group>"; };
 		E7995C761B98D1410025FFAC /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +101,6 @@
 		E7995C691B98CC750025FFAC /* PointsTests */ = {
 			isa = PBXGroup;
 			children = (
-				E7995C6C1B98CC750025FFAC /* PointsTests.swift */,
 				E7995C6A1B98CC750025FFAC /* Supporting Files */,
 				E74F72C91B9B7CF300BF56AD /* NodeTest.swift */,
 			);
@@ -228,7 +225,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7995C6D1B98CC750025FFAC /* PointsTests.swift in Sources */,
 				E74F72CA1B9B7CF300BF56AD /* NodeTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
