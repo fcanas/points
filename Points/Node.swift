@@ -35,10 +35,6 @@ import Cocoa
         }
     }
     
-    var editableCost :Bool {
-        return children.count == 0
-    }
-    
     public required override init() {
         super.init()
     }
@@ -67,13 +63,9 @@ import Cocoa
 
 public func ==(lhs: Node, rhs: Node) -> Bool {
     
-    if lhs.name != rhs.name {
+    if lhs.name != rhs.name || lhs.children.count != rhs.children.count {
         return false
     }
-    if lhs.children.count != rhs.children.count {
-        return false
-    }
-    
     if lhs.children.count > 1 {
         return reduce(zip(lhs.children, rhs.children), true, {(eq, cs) in eq && cs.0 == cs.1 })
     }
