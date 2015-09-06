@@ -9,15 +9,9 @@
 import Cocoa
 
 class Document: NSDocument {
-
+    
     var nodes :[Node] = []
     
-    override var documentEdited :Bool {
-        get {
-            return true
-        }
-    }
-
     override class func autosavesInPlace() -> Bool {
         return true
     }
@@ -31,25 +25,19 @@ class Document: NSDocument {
         let vc = windowController.contentViewController as? ViewController
         vc?.representedObject = self
     }
-
+    
     override func dataOfType(typeName: String, error outError: NSErrorPointer) -> NSData? {
-        // Insert code here to write your document to data of the specified type. If outError != nil, ensure that you create and set an appropriate error when returning nil.
-        // You can also choose to override fileWrapperOfType:error:, writeToURL:ofType:error:, or writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
-        // outError.memory = NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
-        
         return NSKeyedArchiver.archivedDataWithRootObject(nodes as NSArray)
     }
-
+    
     override func readFromData(data: NSData, ofType typeName: String, error outError: NSErrorPointer) -> Bool {
         if let n = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Node] {
             nodes = n
             return true
         }
         
-        outError.memory = NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
+        outError.memory = NSError(domain: NSCocoaErrorDomain, code: NSFileReadCorruptFileError, userInfo: nil)
         return false
     }
-
-
+    
 }
-
