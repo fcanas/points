@@ -8,7 +8,7 @@
 
 import Cocoa
 
-@objc public class Node: NSObject, NSCopying, NSCoding, Equatable {
+@objc public class Node: NSObject, NSCopying, NSCoding {
     
     public var children :Array<Node> = []
     var isLeaf :Bool {
@@ -60,6 +60,8 @@ import Cocoa
         aCoder.encodeObject(children as NSArray, forKey: "children")
     }
 }
+
+extension Node :Equatable {}
 
 public func ==(lhs: Node, rhs: Node) -> Bool {
     
