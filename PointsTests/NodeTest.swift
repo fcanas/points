@@ -59,7 +59,7 @@ class NodeTest: XCTestCase {
         c3.cost = 3
         
         node.children = [c1, c2, c3]
-        XCTAssertEqual(node.cost, reduce(node.children, 0, {(u, c) in u + c.cost}), "A node's cost should be equal to the cost of its children")
+        XCTAssertEqual(node.cost, node.children.reduce(0, {(u, c) in u + c.cost}), "A node's cost should be equal to the cost of its children")
         
         var node2 = node.copy() as! Node
         XCTAssert(node == node2, "Two equivalent nodes should be equal, even if they have children")

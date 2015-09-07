@@ -18,7 +18,7 @@ class Document: NSDocument {
     
     override func makeWindowControllers() {
         // Returns the Storyboard that contains your Document window.
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)!
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let windowController = storyboard.instantiateControllerWithIdentifier("Document Window Controller") as! NSWindowController
         self.addWindowController(windowController)
         // set the document as the view controller's represented object
@@ -26,18 +26,17 @@ class Document: NSDocument {
         vc?.representedObject = self
     }
     
-    override func dataOfType(typeName: String, error outError: NSErrorPointer) -> NSData? {
+    override func dataOfType(typeName: String) throws -> NSData {
         return NSKeyedArchiver.archivedDataWithRootObject(nodes as NSArray)
     }
     
-    override func readFromData(data: NSData, ofType typeName: String, error outError: NSErrorPointer) -> Bool {
+    override func readFromData(data: NSData, ofType typeName: String) throws {
         if let n = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Node] {
             nodes = n
-            return true
+            return
         }
         
-        outError.memory = NSError(domain: NSCocoaErrorDomain, code: NSFileReadCorruptFileError, userInfo: nil)
-        return false
+        throw NSError(domain: NSCocoaErrorDomain, code: NSFileReadCorruptFileError, userInfo: nil)
     }
     
 }

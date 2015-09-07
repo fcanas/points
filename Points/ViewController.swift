@@ -36,11 +36,11 @@ class ViewController: NSViewController {
             }
         case let (c, m) where c == .Delete:
             treeController?.remove(self)
-        case let (c, m) where c == .N && (m & NSEventModifierFlags.ControlKeyMask) != nil:
+        case let (c, m) where c == .N && (m.intersect(NSEventModifierFlags.ControlKeyMask)) != []:
             if let selectedRow = outlineView?.selectedRow {
                 outlineView?.selectRowIndexes(NSIndexSet(index: selectedRow + 1), byExtendingSelection: false)
             }
-        case let (c, m) where c == .P && (m & NSEventModifierFlags.ControlKeyMask) != nil:
+        case let (c, m) where c == .P && (m.intersect(NSEventModifierFlags.ControlKeyMask)) != []:
             if let selectedRow = outlineView?.selectedRow {
                 outlineView?.selectRowIndexes(NSIndexSet(index: selectedRow - 1), byExtendingSelection: false)
             }

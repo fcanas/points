@@ -18,7 +18,7 @@ import Cocoa
     }
     public var name :String = "-"
     
-    public override class func keyPathsForValuesAffectingValueForKey(key: String) -> Set<NSObject> {
+    public override class func keyPathsForValuesAffectingValueForKey(key: String) -> Set<String> {
         if key == "cost" {
             return Set(["children"])
         }
@@ -28,7 +28,7 @@ import Cocoa
     var storedCost :Int = 0
     public var cost :Int {
         get {
-            return children.count > 0 ? reduce(children, 0) { $0 + $1.cost } : storedCost
+            return children.count > 0 ? children.reduce(0) { $0 + $1.cost } : storedCost
         }
         set(newCost) {
             storedCost = newCost
@@ -40,14 +40,14 @@ import Cocoa
     }
     
     public func copyWithZone(zone: NSZone) -> AnyObject {
-        var new :Node = self.dynamicType()
+        let new :Node = self.dynamicType.init()
         new.name = name
         new.cost = cost
-        new.children = map(children, { $0.copy() as! Node })
+        new.children = children.map({ $0.copy() as! Node })
         return new
     }
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init()
         storedCost = aDecoder.decodeIntegerForKey("storedCost")
         name = aDecoder.decodeObjectOfClass(NSString.self, forKey: "name") as! NSString as String
@@ -69,7 +69,7 @@ public func ==(lhs: Node, rhs: Node) -> Bool {
         return false
     }
     if lhs.children.count > 1 {
-        return reduce(zip(lhs.children, rhs.children), true, {(eq, cs) in eq && cs.0 == cs.1 })
+        return zip(lhs.children, rhs.children).reduce(true, combine: {(eq, cs) in eq && cs.0 == cs.1 })
     }
     
     return lhs.storedCost == rhs.storedCost
